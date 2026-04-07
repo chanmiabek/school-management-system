@@ -1,0 +1,8 @@
+{% extends 'Home/base.html' %}
+{% block body %}
+<div class="page-wrapper"><div class="content container-fluid">
+  <div class="page-header"><div class="row align-items-center"><div class="col"><h3 class="page-title">Time Table</h3></div><div class="col-auto"><a href="{% url 'add_time_table_entry' %}" class="btn btn-primary">Add Entry</a></div></div></div>
+  <div class="card"><div class="card-body table-responsive"><table class="table"><thead><tr><th>Class</th><th>Day</th><th>Subject</th><th>Teacher</th><th>Start</th><th>End</th></tr></thead><tbody>{% for t in entries %}<tr><td>{{ t.class_name }}</td><td>{{ t.day }}</td><td>{{ t.subject|default:"-" }}</td><td>{{ t.teacher|default:"-" }}</td><td>{{ t.start_time }}</td><td>{{ t.end_time }}</td></tr>{% empty %}<tr><td colspan="6">No timetable entries yet.</td></tr>{% endfor %}</tbody></table></div></div>
+</div></div>
+{% endblock %}
+

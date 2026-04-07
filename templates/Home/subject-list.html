@@ -1,0 +1,33 @@
+{% extends 'Home/base.html' %}
+{% block body %}
+<div class="page-wrapper">
+  <div class="content container-fluid">
+    <div class="page-header">
+      <div class="row align-items-center">
+        <div class="col"><h3 class="page-title">Subjects</h3></div>
+        <div class="col-auto"><a href="{% url 'add_subject' %}" class="btn btn-primary">Add Subject</a></div>
+      </div>
+    </div>
+    <div class="card"><div class="card-body table-responsive">
+      <table class="table table-hover">
+        <thead><tr><th>Name</th><th>Code</th><th>Department</th><th>Teacher</th><th>Credits</th><th>Action</th></tr></thead>
+        <tbody>
+          {% for subject in subjects %}
+          <tr>
+            <td>{{ subject.name }}</td>
+            <td>{{ subject.code }}</td>
+            <td>{{ subject.department.name|default:"-" }}</td>
+            <td>{{ subject.teacher|default:"-" }}</td>
+            <td>{{ subject.credit_hours }}</td>
+            <td><a href="{% url 'edit_subject' subject.id %}" class="btn btn-sm btn-success">Edit</a></td>
+          </tr>
+          {% empty %}
+          <tr><td colspan="6">No subjects yet.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+</div>
+{% endblock %}
+

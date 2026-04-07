@@ -1,0 +1,8 @@
+{% extends 'Home/base.html' %}
+{% block body %}
+<div class="page-wrapper"><div class="content container-fluid">
+  <div class="page-header"><div class="row align-items-center"><div class="col"><h3 class="page-title">Transport</h3></div><div class="col-auto"><a href="{% url 'add_transport_route' %}" class="btn btn-primary">Add Route</a></div></div></div>
+  <div class="card"><div class="card-body table-responsive"><table class="table"><thead><tr><th>Route</th><th>Driver</th><th>Vehicle</th><th>Pickup Time</th></tr></thead><tbody>{% for r in routes %}<tr><td>{{ r.route_name }}</td><td>{{ r.driver_name }}</td><td>{{ r.vehicle_number }}</td><td>{{ r.pickup_time }}</td></tr>{% empty %}<tr><td colspan="4">No transport routes yet.</td></tr>{% endfor %}</tbody></table></div></div>
+</div></div>
+{% endblock %}
+

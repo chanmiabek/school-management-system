@@ -1,0 +1,8 @@
+{% extends 'Home/base.html' %}
+{% block body %}
+<div class="page-wrapper"><div class="content container-fluid">
+  <div class="page-header"><div class="row align-items-center"><div class="col"><h3 class="page-title">Fee Structure</h3></div><div class="col-auto"><a href="{% url 'add_fee_structure' %}" class="btn btn-primary">Add Fee Structure</a></div></div></div>
+  <div class="card"><div class="card-body table-responsive"><table class="table"><thead><tr><th>Class</th><th>Term</th><th>Amount</th><th>Due Date</th></tr></thead><tbody>{% for f in fee_structures %}<tr><td>{{ f.class_name }}</td><td>{{ f.term }}</td><td>{{ f.amount }}</td><td>{{ f.due_date }}</td></tr>{% empty %}<tr><td colspan="4">No fee structure records yet.</td></tr>{% endfor %}</tbody></table></div></div>
+</div></div>
+{% endblock %}
+

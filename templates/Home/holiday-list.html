@@ -1,0 +1,8 @@
+{% extends 'Home/base.html' %}
+{% block body %}
+<div class="page-wrapper"><div class="content container-fluid">
+  <div class="page-header"><div class="row align-items-center"><div class="col"><h3 class="page-title">Holidays</h3></div><div class="col-auto"><a href="{% url 'add_holiday' %}" class="btn btn-primary">Add Holiday</a></div></div></div>
+  <div class="card"><div class="card-body table-responsive"><table class="table"><thead><tr><th>Title</th><th>Start</th><th>End</th><th>Description</th></tr></thead><tbody>{% for h in holidays %}<tr><td>{{ h.title }}</td><td>{{ h.start_date }}</td><td>{{ h.end_date }}</td><td>{{ h.description|default:"-" }}</td></tr>{% empty %}<tr><td colspan="4">No holidays yet.</td></tr>{% endfor %}</tbody></table></div></div>
+</div></div>
+{% endblock %}
+

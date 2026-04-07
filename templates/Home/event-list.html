@@ -1,0 +1,8 @@
+{% extends 'Home/base.html' %}
+{% block body %}
+<div class="page-wrapper"><div class="content container-fluid">
+  <div class="page-header"><div class="row align-items-center"><div class="col"><h3 class="page-title">Events</h3></div><div class="col-auto"><a href="{% url 'add_event' %}" class="btn btn-primary">Add Event</a></div></div></div>
+  <div class="card"><div class="card-body table-responsive"><table class="table"><thead><tr><th>Title</th><th>Date</th><th>Location</th><th>Description</th></tr></thead><tbody>{% for e in events %}<tr><td>{{ e.title }}</td><td>{{ e.event_date }}</td><td>{{ e.location|default:"-" }}</td><td>{{ e.description|default:"-" }}</td></tr>{% empty %}<tr><td colspan="4">No events yet.</td></tr>{% endfor %}</tbody></table></div></div>
+</div></div>
+{% endblock %}
+

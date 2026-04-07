@@ -1,0 +1,15 @@
+asgiref==3.8.1
+Django==5.1.1
+pillow==10.4.0
+sqlparse==0.5.1
+tzdata==2024.1
+whitenoise==6.7.0
+gunicorn
+channels==4.0.0
+channels-redis==4.1.0
+daphne==4.0.0
+psycopg2-binary
+
+pip install gunicorn
+pip install dj-database-url
+pip install psycopg2-binary

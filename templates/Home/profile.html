@@ -1,0 +1,16 @@
+{% extends 'Home/base.html' %}
+{% block body %}
+<div class="page-wrapper">
+  <div class="content container-fluid">
+    <div class="page-header"><h3 class="page-title">My Profile</h3></div>
+    <div class="card"><div class="card-body">
+      <p><strong>Username:</strong> {{ current_user.username }}</p>
+      <p><strong>Email:</strong> {{ current_user.email }}</p>
+      <p><strong>First Name:</strong> {{ current_user.first_name|default:"-" }}</p>
+      <p><strong>Last Name:</strong> {{ current_user.last_name|default:"-" }}</p>
+      <p><strong>Joined:</strong> {{ current_user.date_joined }}</p>
+    </div></div>
+  </div>
+</div>
+{% endblock %}
+

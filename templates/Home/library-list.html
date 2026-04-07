@@ -1,0 +1,8 @@
+{% extends 'Home/base.html' %}
+{% block body %}
+<div class="page-wrapper"><div class="content container-fluid">
+  <div class="page-header"><div class="row align-items-center"><div class="col"><h3 class="page-title">Library</h3></div><div class="col-auto"><a href="{% url 'add_library_book' %}" class="btn btn-primary">Add Book</a></div></div></div>
+  <div class="card"><div class="card-body table-responsive"><table class="table"><thead><tr><th>Title</th><th>Author</th><th>ISBN</th><th>Copies</th></tr></thead><tbody>{% for b in books %}<tr><td>{{ b.title }}</td><td>{{ b.author }}</td><td>{{ b.isbn }}</td><td>{{ b.copies_available }}</td></tr>{% empty %}<tr><td colspan="4">No books yet.</td></tr>{% endfor %}</tbody></table></div></div>
+</div></div>
+{% endblock %}
+

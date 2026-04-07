@@ -1,0 +1,20 @@
+{% extends 'Home/base.html' %}
+{% block body %}
+<div class="page-wrapper">
+  <div class="content container-fluid">
+    <div class="page-header"><h3 class="page-title">Teacher Details</h3></div>
+    <div class="card"><div class="card-body">
+      <p><strong>Name:</strong> {{ teacher.first_name }} {{ teacher.last_name }}</p>
+      <p><strong>Email:</strong> {{ teacher.email }}</p>
+      <p><strong>Phone:</strong> {{ teacher.phone }}</p>
+      <p><strong>Gender:</strong> {{ teacher.gender }}</p>
+      <p><strong>Department:</strong> {{ teacher.department.name|default:"-" }}</p>
+      <p><strong>Joining Date:</strong> {{ teacher.joining_date }}</p>
+      <p><strong>Address:</strong> {{ teacher.address|default:"-" }}</p>
+      <a href="{% url 'edit_teacher' teacher.id %}" class="btn btn-success">Edit</a>
+      <a href="{% url 'teacher_list' %}" class="btn btn-secondary">Back</a>
+    </div></div>
+  </div>
+</div>
+{% endblock %}
+

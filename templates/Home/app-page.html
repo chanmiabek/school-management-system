@@ -1,0 +1,33 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="page-wrapper">
+   <div class="content container-fluid">
+      <div class="page-header">
+         <div class="row">
+            <div class="col-sm-12">
+               <h3 class="page-title">{{ page_title }}</h3>
+               <ul class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                  <li class="breadcrumb-item active">{{ page_title }}</li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="card">
+               <div class="card-body">
+                  <h5 class="mb-3">{{ page_title }}</h5>
+                  <p class="mb-0">{{ page_description }}</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <footer>
+      <p>&copy; {% now "Y" %} School Management System. All Rights Reserved.</p>
+   </footer>
+</div>
+{% endblock %}
